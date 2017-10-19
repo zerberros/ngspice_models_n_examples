@@ -1,0 +1,17 @@
+TITLE: this line dont compute
+
+* This line is a comment
+
+V1 n01 0  100 ; DC voltage source from node n01 to ground (0) with 100V
+
+R01 n01 n02  25k ; Resistor from node n01 to node n01 of 25kOms
+R02 n02 0    75k ; Resisto of 75kOms
+
+.control
+OP               ; Operating Point analisis or analisis in DC
+
+echo  "This is a simple voltage divisor"
+print n01  n02   ; show the value
+
+.endc
+.end ; Last line 
