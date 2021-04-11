@@ -1,0 +1,28 @@
+
+
+
+vin na 0 ac 1
+
+* S-Parameters simulation
+a_LP_2kHz na nb  LP_filter_2kHz
+
+* ideal componets simulation
+L1 na n2 707u
+C1 n2 0  8.95u
+R1 n2 0  8
+
+.model LP_filter_2kHz s_xfer(
+    + gain=1
+    + num_coeff=[157913670]  
+    + den_coeff=[1.0  13962 157913670]
+    + int_ic=[0 0])
+
+.control
+
+ac dec 1000 10 100000 
+
+plot dB(nb)
+plot dB(n2)
+
+.endc
+.end
